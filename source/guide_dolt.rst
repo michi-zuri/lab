@@ -18,14 +18,14 @@ Dolt
 
 .. tag_list::
 
-Dolt_ and DoltHub_ let users collaborate on datasets in the same way they
-collaborate on source code for application code. Dolt_ is a version control
-tracker for datasets, following the concepts of Git, combined with the
-functionality of a MySQL-compatible database server. DoltHub_ provides
-collaboration and discovery tools for these datasets to enable users to easily
-collaborate across the globe. Since 18 September 2020 it is possible to
-`fork any public dataset on DoltHub`_, similar to how you would fork code
-repositories on GitHub.
+Dolt_ and DoltHub_ let users collaborate on datasets in the same way that people
+collaborate on source code and other text files using Git and GitHub.
+Dolt_ is a version control tracker for tabled datasets, following the concepts
+of Git, combined with the functionality of a MySQL-compatible database server.
+DoltHub_ provides collaboration and discovery tools for these datasets to
+enable users to easily collaborate across the globe. Since 18 September 2020 it
+is possible to `fork any public dataset on DoltHub`_, similar to how one would
+fork code repositories on GitHub.
 
 In contrast to Git, Dolt doesn't just track changes to whole lines or rows,
 but can track the history of cells in tables, as well as the corresponding
@@ -34,9 +34,9 @@ through the powerful SQL query language.
 
 .. note:: In case you are wondering, why would anyone name their software *Git*
   or *Dolt* (both are terms to describe foolish persons in different ways):
-  `Linus Torvalds on the naming of Git`_. The naming of Mercurial`_, another
-  version control tool developed for the Linux kernel, seems to be inspired by
-  similar motivations. Dolt seems to be following some kind of tradition here...
+  `Linus Torvalds on the naming of Git`_. Mercurial, another version control
+  tool developed for the Linux kernel, has a similar background_.
+  Dolt seems to be following some kind of tradition here...
 
 ----
 
@@ -78,8 +78,9 @@ in your PATH, by default:
 Configuration
 =============
 
-Just like in Git, you should set your email and username that will accompany
-your commits:
+Just like in Git, you should set an email address and username that will be
+written in your commits, but note that signing commits with gpg is not
+implemented yet, so you should know that `this can easily be spoofed`_.
 
 .. code-block:: console
 
@@ -89,9 +90,11 @@ your commits:
 
 It is possible to use Dolt without DoltHub, so the following step is optional.
 Dolt will generate a JWT_ in `~/.dolt/creds/` for authenticated access of
-resources on DoltHub and link it to your existing DoltHub account.
+resources on DoltHub and link it to your existing DoltHub account. The tokens
+are read-only. You need to keep them safe, just like you would guard your ssh
+keys.
 
-* Login to or join DoltHub in your regular web browser and then on uberspace:
+* Login to or join DoltHub in your regular web browser then:
 
 .. code-block:: console
 
@@ -108,13 +111,22 @@ resources on DoltHub and link it to your existing DoltHub account.
  Key successfully associated with user: isabellondolthub email isabell@example.email
  [isabell@stardust ~]$
 
-To successfully associate your JWT with your DoltHub_ account, you need to go
-to https://dolthub.com/settings/credentials and save your public key with a
-descriptive title (I suggest something like Uberspace).
+In other words: to successfully associate your JWT with your DoltHub_ account,
+you need to go to https://dolthub.com/settings/credentials and save your public
+key with a descriptive title (I would suggest something like isabell@uberspace).
 
 Usage
 =============
 WIP...
+
+.. _Dolt: https://github.com/liquidata-inc/dolt#dolt
+.. _DoltHub: https://www.dolthub.com/
+.. _`Apache License, Version 2.0`: https://www.apache.org/licenses/LICENSE-2.0.html
+.. _`fork any public dataset on DoltHub`: https://www.dolthub.com/blog/2020-09-18-introducing-forks/
+.. _`Linus Torvalds on the naming of Git`: https://en.wikipedia.org/wiki/Git#Naming
+.. _story: https://en.wikipedia.org/wiki/Mercurial#History
+.. _`this can easily be spoofed`: https://medium.com/@pjbgf/spoofing-git-commits-7bef357d72f0
+.. _JWT: https://jwt.io/#debugger-io
 
 ----
 
